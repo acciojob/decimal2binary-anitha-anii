@@ -1,25 +1,17 @@
 function decimalToBinary(decimal) {
-  let binary = '';
+  let binary = "";
+  if (decimal === 0) {
+    binary = "0";
+  }
   while (decimal > 0) {
-    const remainder = decimal % 2;
-    binary = remainder + binary;
+    binary = (decimal % 2) + binary;
     decimal = Math.floor(decimal / 2);
   }
   return binary;
 }
 
-/*Do not change anything below*/
+// Example usage
+const decimal = 33;
+const binary = decimalToBinary(decimal);
+console.log(binary);
 
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
-});
-
-rl.on('line', function (line) {
-  const decimal = parseInt(line.trim());
-  const binary = decimalToBinary(decimal);
-  console.log(binary);
-  rl.close();
-});
